@@ -11,7 +11,7 @@ import java.util.*;
 
 /**
  *
- * @author Nathan
+ * @author Nathan 
  */
 public class Tablero implements ITablero {
 

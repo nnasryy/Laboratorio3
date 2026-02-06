@@ -38,7 +38,8 @@ public class VentanaTablero extends JFrame {
         top.add(lblPuntaje);
         add(top, BorderLayout.NORTH);
 
-        JuegoMemoria juego = new JuegoMemoria(j1, j2, lblTurno, lblPuntaje);
+        JuegoMemoria juego = new JuegoMemoria(j1,j2,lblTurno,lblPuntaje,this);
+
 
         JPanel tablero = new JPanel(new GridLayout(6, 6, 8, 8)) {
             @Override

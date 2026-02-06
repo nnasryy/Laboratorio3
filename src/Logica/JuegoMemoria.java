@@ -26,17 +26,22 @@ public class JuegoMemoria implements IJuego {
     private JButton boton1, boton2;
     private JLabel lblTurno, lblPuntaje;
     private Tablero tablero;
+    private JFrame ventana;
+
 
     public JuegoMemoria(Jugador j1, Jugador j2,
-            JLabel lblTurno, JLabel lblPuntaje) {
-        this.j1 = j1;
-        this.j2 = j2;
-        this.turno = j1;
-        this.lblTurno = lblTurno;
-        this.lblPuntaje = lblPuntaje;
-        tablero = new Tablero();
-        actualizarInfo();
-    }
+                    JLabel lblTurno, JLabel lblPuntaje,
+                    JFrame ventana) {
+    this.j1 = j1;
+    this.j2 = j2;
+    this.turno = j1;
+    this.lblTurno = lblTurno;
+    this.lblPuntaje = lblPuntaje;
+    this.ventana = ventana;
+    tablero = new Tablero();
+    actualizarInfo();
+}
+
 
     public void iniciarJuego() {
         actualizarInfo();
@@ -86,32 +91,22 @@ public class JuegoMemoria implements IJuego {
     }
 
     public void finalizarJuego() {
-        String msg;
-        if (j1.getAciertos() > j2.getAciertos()) {
-            msg = "Ganador: " + j1.getNombre();
-        } else if (j2.getAciertos() > j1.getAciertos()) {
-            msg = "Ganador: " + j2.getNombre();
-        } else {
-            msg = "Empate";
-        }
 
-    // Panel principal del mensaje
     JPanel panel = new JPanel();
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-    panel.setBackground(new Color(59, 76, 202)); // Azul Pokémon
+    panel.setBackground(new Color(59, 76, 202));
     panel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
 
     JLabel lblTitulo = new JLabel();
     lblTitulo.setAlignmentX(Component.CENTER_ALIGNMENT);
     lblTitulo.setFont(new Font("Verdana", Font.BOLD, 26));
-    lblTitulo.setForeground(new Color(255, 222, 0)); // Amarillo Pokémon
+    lblTitulo.setForeground(new Color(255, 222, 0));
 
     JLabel lblResultado = new JLabel();
     lblResultado.setAlignmentX(Component.CENTER_ALIGNMENT);
     lblResultado.setFont(new Font("Verdana", Font.PLAIN, 16));
     lblResultado.setForeground(Color.WHITE);
 
-    // Comparar aciertos
     if (j1.getAciertos() > j2.getAciertos()) {
         lblTitulo.setText("VICTORIA DE " + j1.getNombre().toUpperCase());
     } else if (j2.getAciertos() > j1.getAciertos()) {
@@ -126,20 +121,20 @@ public class JuegoMemoria implements IJuego {
             j2.getNombre() + ": " + j2.getAciertos()
     );
 
-    panel.add(lblTitulo);
-    panel.add(Box.createRigidArea(new Dimension(0, 15)));
-    panel.add(lblResultado);
-
     JOptionPane.showMessageDialog(
-            null,
+            ventana,
             panel,
             "Resultado del Duelo",
             JOptionPane.PLAIN_MESSAGE
     );
 
-    // Volver al menú de inicio
+    // Cerrar ventana del juego
+    ventana.dispose();
+
+    // Volver al menú inicio
     new GUI.PantallaInicio();
 }
+
 
 
     private void actualizarInfo() {

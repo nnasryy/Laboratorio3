@@ -4,6 +4,8 @@
  */
 package Main;
 
+import GUI.PantallaInicio;
+
 /**
  *
  * @author nasry
@@ -14,7 +16,6 @@ public class Lab3_PrograII {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new PantallaInicio().setVisible(true);
     }
-    
 }

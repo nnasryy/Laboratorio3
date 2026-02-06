@@ -7,6 +7,10 @@ package Logica;
 import GUI.PantallaInicio;
 import GUI.VentanaTablero;
 import Interfaces.IJuego;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.*;
 
@@ -91,8 +95,52 @@ public class JuegoMemoria implements IJuego {
             msg = "Empate";
         }
 
-        JOptionPane.showMessageDialog(null, msg);
+    // Panel principal del mensaje
+    JPanel panel = new JPanel();
+    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+    panel.setBackground(new Color(59, 76, 202)); // Azul Pokémon
+    panel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+
+    JLabel lblTitulo = new JLabel();
+    lblTitulo.setAlignmentX(Component.CENTER_ALIGNMENT);
+    lblTitulo.setFont(new Font("Verdana", Font.BOLD, 26));
+    lblTitulo.setForeground(new Color(255, 222, 0)); // Amarillo Pokémon
+
+    JLabel lblResultado = new JLabel();
+    lblResultado.setAlignmentX(Component.CENTER_ALIGNMENT);
+    lblResultado.setFont(new Font("Verdana", Font.PLAIN, 16));
+    lblResultado.setForeground(Color.WHITE);
+
+    // Comparar aciertos
+    if (j1.getAciertos() > j2.getAciertos()) {
+        lblTitulo.setText("VICTORIA DE " + j1.getNombre().toUpperCase());
+    } else if (j2.getAciertos() > j1.getAciertos()) {
+        lblTitulo.setText("VICTORIA DE " + j2.getNombre().toUpperCase());
+    } else {
+        lblTitulo.setText("EMPATE");
     }
+
+    lblResultado.setText(
+            j1.getNombre() + ": " + j1.getAciertos() +
+            "  |  " +
+            j2.getNombre() + ": " + j2.getAciertos()
+    );
+
+    panel.add(lblTitulo);
+    panel.add(Box.createRigidArea(new Dimension(0, 15)));
+    panel.add(lblResultado);
+
+    JOptionPane.showMessageDialog(
+            null,
+            panel,
+            "Resultado del Duelo",
+            JOptionPane.PLAIN_MESSAGE
+    );
+
+    // Volver al menú de inicio
+    new GUI.PantallaInicio();
+}
+
 
     private void actualizarInfo() {
         lblTurno.setText("Turno: " + turno.getNombre());

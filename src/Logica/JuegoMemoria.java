@@ -95,14 +95,15 @@ public class JuegoMemoria implements IJuego {
     JPanel panel = new JPanel();
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
     panel.setBackground(new Color(59, 76, 202));
-    panel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+    panel.setBorder(BorderFactory.createEmptyBorder(25, 40, 25, 40));
+    panel.setPreferredSize(new Dimension(420, 180));
 
-    JLabel lblTitulo = new JLabel();
+    JLabel lblTitulo = new JLabel("", SwingConstants.CENTER);
     lblTitulo.setAlignmentX(Component.CENTER_ALIGNMENT);
     lblTitulo.setFont(new Font("Verdana", Font.BOLD, 26));
     lblTitulo.setForeground(new Color(255, 222, 0));
 
-    JLabel lblResultado = new JLabel();
+    JLabel lblResultado = new JLabel("", SwingConstants.CENTER);
     lblResultado.setAlignmentX(Component.CENTER_ALIGNMENT);
     lblResultado.setFont(new Font("Verdana", Font.PLAIN, 16));
     lblResultado.setForeground(Color.WHITE);
@@ -117,9 +118,13 @@ public class JuegoMemoria implements IJuego {
 
     lblResultado.setText(
             j1.getNombre() + ": " + j1.getAciertos() +
-            "  |  " +
+            "   |   " +
             j2.getNombre() + ": " + j2.getAciertos()
     );
+
+    panel.add(lblTitulo);
+    panel.add(Box.createRigidArea(new Dimension(0, 20)));
+    panel.add(lblResultado);
 
     JOptionPane.showMessageDialog(
             ventana,
@@ -129,9 +134,9 @@ public class JuegoMemoria implements IJuego {
     );
 
     ventana.dispose();
-
     new GUI.PantallaInicio();
 }
+
 
 
 

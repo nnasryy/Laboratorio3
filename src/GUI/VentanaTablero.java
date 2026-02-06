@@ -42,4 +42,4 @@ public class VentanaTablero extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
-}
+} 

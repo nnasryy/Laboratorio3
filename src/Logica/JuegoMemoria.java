@@ -4,9 +4,12 @@
  */
 package Logica;
 
+import GUI.PantallaInicio;
+import GUI.VentanaTablero;
 import Interfaces.IJuego;
 
 import javax.swing.*;
+
 /**
  *
  * @author Nathan
@@ -21,7 +24,7 @@ public class JuegoMemoria implements IJuego {
     private Tablero tablero;
 
     public JuegoMemoria(Jugador j1, Jugador j2,
-                        JLabel lblTurno, JLabel lblPuntaje) {
+            JLabel lblTurno, JLabel lblPuntaje) {
         this.j1 = j1;
         this.j2 = j2;
         this.turno = j1;
@@ -36,7 +39,9 @@ public class JuegoMemoria implements IJuego {
     }
 
     public void seleccionarCarta(Carta c, JButton b) {
-        if (c.estaDescubierta()) return;
+        if (c.estaDescubierta()) {
+            return;
+        }
 
         c.mostrar(b);
 
@@ -78,12 +83,13 @@ public class JuegoMemoria implements IJuego {
 
     public void finalizarJuego() {
         String msg;
-        if (j1.getAciertos() > j2.getAciertos())
+        if (j1.getAciertos() > j2.getAciertos()) {
             msg = "Ganador: " + j1.getNombre();
-        else if (j2.getAciertos() > j1.getAciertos())
+        } else if (j2.getAciertos() > j1.getAciertos()) {
             msg = "Ganador: " + j2.getNombre();
-        else
+        } else {
             msg = "Empate";
+        }
 
         JOptionPane.showMessageDialog(null, msg);
     }
@@ -96,7 +102,5 @@ public class JuegoMemoria implements IJuego {
 
     public Tablero getTablero() {
         return tablero;
-    }
+    } 
 }
-
- 

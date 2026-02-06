@@ -8,6 +8,11 @@ package Interfaces;
  *
  * @author nasry
  */
-public class ITablero {
-    
+public interface ITablero {
+
+    void crearTablero();
+
+    void mezclarCartas();
+
+    boolean quedanParejas();
 }

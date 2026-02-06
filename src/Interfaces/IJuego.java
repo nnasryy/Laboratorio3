@@ -4,10 +4,19 @@
  */
 package Interfaces;
 
+import Logica.Carta;
+
 /**
  *
  * @author nasry
  */
-public class IJuego {
-    
+public interface IJuego {
+
+    void iniciarJuego();
+
+    void cambiarTurno();
+
+    void verificarPareja(Carta c1, Carta c2);
+
+    void finalizarJuego();
 }

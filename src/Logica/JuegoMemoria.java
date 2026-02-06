@@ -128,10 +128,8 @@ public class JuegoMemoria implements IJuego {
             JOptionPane.PLAIN_MESSAGE
     );
 
-    // Cerrar ventana del juego
     ventana.dispose();
 
-    // Volver al menú inicio
     new GUI.PantallaInicio();
 }
 

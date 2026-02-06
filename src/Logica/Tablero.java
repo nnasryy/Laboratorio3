@@ -27,18 +27,15 @@ public class Tablero implements ITablero {
         try {
             cartas.clear();
 
-            // 1. Cargar las 18 imágenes y crear sus pares
             for (int i = 1; i <= 18; i++) {
                 ImageIcon img = new ImageIcon(
                         getClass().getResource("/Imagenes/p" + i + ".png")
                 );
 
-                // Agregar el par de cartas
                 cartas.add(new CartaPokemon("P" + i, img));
                 cartas.add(new CartaPokemon("P" + i, img));
             }
 
-            // 2. Mezclar todas las cartas
             Collections.shuffle(cartas);
 
         } catch (Exception e) {

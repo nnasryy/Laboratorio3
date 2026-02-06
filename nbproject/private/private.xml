@@ -3,7 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/nasry/OneDrive/Documents/Laboratorio/Lab3_PrograII/src/lab3_prograii/Lab3_PrograII.java</file>
+            <file>file:/C:/Users/jerem/OneDrive/Desktop/Lab2_Progra2/Lab2_3B/Laboratorio3/src/Main/Lab3_PrograII.java</file>
+            <file>file:/C:/Users/jerem/OneDrive/Desktop/Lab2_Progra2/Lab2_3B/Laboratorio3/src/Logica/CartaPokemon.java</file>
+            <file>file:/C:/Users/jerem/OneDrive/Desktop/Lab2_Progra2/Lab2_3B/Laboratorio3/src/Logica/Jugador.java</file>
+            <file>file:/C:/Users/jerem/OneDrive/Desktop/Lab2_Progra2/Lab2_3B/Laboratorio3/src/Logica/Carta.java</file>
+            <file>file:/C:/Users/jerem/OneDrive/Desktop/Lab2_Progra2/Lab2_3B/Laboratorio3/src/GUI/PantallaInicio.java</file>
+            <file>file:/C:/Users/jerem/OneDrive/Desktop/Lab2_Progra2/Lab2_3B/Laboratorio3/src/Logica/JuegoMemoria.java</file>
+            <file>file:/C:/Users/jerem/OneDrive/Desktop/Lab2_Progra2/Lab2_3B/Laboratorio3/src/Logica/Tablero.java</file>
+            <file>file:/C:/Users/jerem/OneDrive/Desktop/Lab2_Progra2/Lab2_3B/Laboratorio3/src/Interfaces/IJuego.java</file>
+            <file>file:/C:/Users/jerem/OneDrive/Desktop/Lab2_Progra2/Lab2_3B/Laboratorio3/src/Interfaces/ITablero.java</file>
         </group>
     </open-files>
 </project-private>

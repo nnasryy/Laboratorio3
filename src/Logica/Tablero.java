@@ -20,50 +20,39 @@ public class Tablero implements ITablero {
     public Tablero() {
         cartas = new ArrayList<>();
         crearTablero();
-        mezclarCartas();
     }
 
     @Override
     public void crearTablero() {
-        try {
-            cartas.clear();
-            ArrayList<Carta> base = new ArrayList<>();
+        cartas.clear();
+        ArrayList<Carta> base = new ArrayList<>();
 
-            // 1. Cargar SIEMPRE las 12 imágenes p1–p12
+        try {
+            // 1. Cargar las 12 imágenes fijas p1-p12
             for (int i = 1; i <= 12; i++) {
-                ImageIcon img = new ImageIcon(
-                        getClass().getResource("/Imagenes/p" + i + ".png")
-                );
+                ImageIcon img = new ImageIcon(getClass().getResource("/Imagenes/p" + i + ".png"));
                 base.add(new CartaPokemon("P" + i, img));
             }
 
-            // 2. Agregar un PAR fijo de cada imagen (24 cartas)
+            // 2. Crear un par de cada imagen fija → 12 pares = 24 cartas
             for (Carta c : base) {
                 cartas.add(new CartaPokemon(c.getId(), c.imagen));
                 cartas.add(new CartaPokemon(c.getId(), c.imagen));
             }
 
-            // 3. Calcular cuántas cartas faltan (12)
-            int faltantes = 36 - cartas.size(); // = 12
-
+            // 3. Crear 6 pares adicionales aleatorios desde las 12 imágenes → 12 cartas
             Random r = new Random();
-
-            // 4. Agregar las cartas faltantes SIEMPRE EN PARES
-            while (faltantes > 0) {
+            for (int i = 0; i < 6; i++) {
                 Carta c = base.get(r.nextInt(base.size()));
                 cartas.add(new CartaPokemon(c.getId(), c.imagen));
                 cartas.add(new CartaPokemon(c.getId(), c.imagen));
-                faltantes -= 2;
             }
 
-            // 5. Mezclar todo
+            // 4. Mezclar todas las cartas
             Collections.shuffle(cartas);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Error cargando imágenes"
-            );
+            JOptionPane.showMessageDialog(null, "Error cargando imágenes: " + e.getMessage());
         }
     }
 
@@ -84,3 +73,5 @@ public class Tablero implements ITablero {
         return cartas;
     }
 }
+
+ 
